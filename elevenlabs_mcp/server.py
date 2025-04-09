@@ -754,7 +754,7 @@ def play_audio(input_file_path: str) -> TextContent:
 def main():
     print("Starting MCP server")
     """Run the MCP server"""
-    mcp.run()
+    mcp.run(transport="sse")
 
 
 if __name__ == "__main__":

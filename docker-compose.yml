@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  elevenlabs-mcp:
+    image: tolak/elevenlabs-mcp-server:v0.1.0
+    ports:
+      - "8000:8000"
+    volumes:
+      - /root:/app/data
+    environment:
+      - ELEVENLABS_API_KEY=${ELEVENLABS_API_KEY}
+      - ELEVENLABS_MCP_BASE_PATH=${ELEVENLABS_MCP_BASE_PATH}
+
+  fileserver:
+    image: python:3.11-slim
+    ports:
+      - "8080:8080"
+    working_dir: /root
+    command: python -m http.server 8080
+
